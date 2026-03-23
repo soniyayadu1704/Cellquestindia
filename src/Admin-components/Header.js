@@ -1,7 +1,9 @@
 // src/Admin-components/Header.js
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FaBell, FaSignOutAlt, FaFlask, FaBars } from "react-icons/fa";
+import { FaBell, FaSignOutAlt, FaBars } from "react-icons/fa";
+import { GiStethoscope } from "react-icons/gi";
+
 import "./header.css";
 
 function Header({ toggleSidebar }) {
@@ -20,7 +22,7 @@ function Header({ toggleSidebar }) {
       {/* Left: Hamburger + Logo */}
       <div className="header-left">
         <FaBars onClick={toggleSidebar} style={{ cursor: "pointer", marginRight: "10px" }} />
-        <FaFlask className="logo-icon" />
+        <GiStethoscope  className="logo-icon" />
         <h2 className="logo-text">MedLab Admin</h2>
       </div>
 

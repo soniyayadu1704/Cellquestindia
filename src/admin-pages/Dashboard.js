@@ -14,6 +14,9 @@ import {
   Legend
 } from "chart.js";
 
+// Icons for cards
+import { MdLocalHospital, MdPeople, MdEventNote, MdToday } from "react-icons/md";
+
 // Register Chart.js components
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
@@ -26,9 +29,9 @@ function Dashboard() {
   });
 
   useEffect(() => {
-    axios.get("https://jsonplaceholder.typicode.com/users") // dummy API
+    // Dummy API call
+    axios.get("https://jsonplaceholder.typicode.com/users")
       .then(res => {
-        // Here, just simulating values from API
         setData({
           doctors: 12,
           patients: 34,
@@ -46,7 +49,7 @@ function Dashboard() {
       {
         label: "Counts",
         data: [data.doctors, data.patients, data.appointments, data.todayBookings],
-        backgroundColor: ["#d4ab7d"], 
+        backgroundColor: "#d4ab7d", // single color for bars
       }
     ]
   };
@@ -55,9 +58,7 @@ function Dashboard() {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
-      legend: {
-        display: false
-      },
+      legend: { display: false },
       title: {
         display: true,
         text: "Dashboard Summary",
@@ -65,36 +66,51 @@ function Dashboard() {
       }
     },
     scales: {
-      y: {
-        beginAtZero: true,
-        ticks: { stepSize: 5 } // adjust step size if needed
-      }
+      y: { beginAtZero: true, ticks: { stepSize: 5 } }
     }
   };
 
   return (
     <div className="dashboard">
-     
-
       <div className="cards">
+        {/* Total Doctors */}
         <div className="card-hover card-one">
+          <div className="card-header">
+            <MdLocalHospital size={30} />
+          </div>
           <h3>Total Doctors</h3>
           <p>{data.doctors}</p>
         </div>
+
+        {/* Total Patients */}
         <div className="card-hover card-two">
+          <div className="card-header" style={{ backgroundColor: "#7fb77e" }}>
+            <MdPeople size={30} />
+          </div>
           <h3>Total Patients</h3>
           <p>{data.patients}</p>
         </div>
+
+        {/* Total Appointments */}
         <div className="card-hover card-three">
+          <div className="card-header" style={{ backgroundColor: "#ff8b94" }}>
+            <MdEventNote size={30} />
+          </div>
           <h3>Total Appointments</h3>
           <p>{data.appointments}</p>
         </div>
+
+        {/* Today's Bookings */}
         <div className="card-hover card-four">
+          <div className="card-header" style={{ backgroundColor: "#e0c64d" }}>
+            <MdToday size={30} />
+          </div>
           <h3>Today's Bookings</h3>
           <p>{data.todayBookings}</p>
         </div>
       </div>
 
+      {/* Chart */}
       <div className="chart">
         <Bar data={chartData} options={chartOptions} />
       </div>

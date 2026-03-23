@@ -174,7 +174,7 @@ button {
 }
 
 .sidebar-link:hover {
-  background-color: #ddd;
+  background-color: #e1d7a7;
 }
 
 .sidebar-icon {
@@ -212,38 +212,69 @@ button {
 }
 
 .card-hover {
-  padding: 20px;
   border-radius: 10px;
   background-color: #fff;
   text-align: center;
-  transition: transform 0.2s, box-shadow 0.2s;
   cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .card-hover:hover {
   transform: translateY(-6px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
 }
 
-/* Pastel colors */
-.card-one {
-  background-color: #c4c3e3;
-  color: #333;
+/* Top tip section */
+.card-header {
+  padding: 10px 0;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.card-two {
-  background-color: #d6e499;
-  color: #333;
+/* Card text */
+.card-hover h3 {
+  margin: 15px 0 5px 0;
+  font-size: 18px;
+  font-weight: 600;
 }
 
-.card-three {
-  background-color: #ffccc3;
-  color: #333;
+.card-hover p {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0 0 15px 0;
 }
 
-.card-four {
-  background-color: #f9e46f;
-  color: #333;
+/* Specific card pastel colors for main body */
+.card-one { background-color: #c4c3e3; }
+.card-two { background-color: #d6e499; }
+.card-three { background-color: #ffccc3; }
+.card-four { background-color: #f9e46f; }
+
+/* Top tip section with slightly darker color */
+.card-one .card-header {
+  background-color: #9b8fd2; /* darker than #c4c3e3 body */
+  padding: 10px 0;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.card-two .card-header {
+  background-color: #a1b877; /* darker than #d6e499 */
+}
+
+.card-three .card-header {
+  background-color: #e29a91; /* darker than #ffccc3 */
+}
+
+.card-four .card-header {
+  background-color: #d8c034; /* darker than #f9e46f */
 }
 
 /* Card text */
