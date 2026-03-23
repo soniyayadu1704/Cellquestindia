@@ -1,0 +1,54 @@
+/* src/Admin-components/sidebar.css */
+.sidebar {
+  width: 230px;
+  background-color: #fdf8e2;
+  color: black;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  transition: all 0.3s ease;
+  position: fixed;
+  top: 70px;             /* stays below header */
+  left: 0;
+  height: calc(100% - 70px);
+  z-index: 1;            /* lower than header */
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.sidebar-link:hover {
+  background-color: #827747;
+}
+
+.sidebar-icon {
+  margin-right: 10px;
+}
+
+/* Mobile: sidebar hidden by default handled by App.css */
+@media (max-width: 768px) {
+  .sidebar-link {
+    padding: 12px 15px; /* slightly smaller padding on mobile */
+  }
+}
+
+/* Tablet: sidebar icon only */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .sidebar-text {
+    display: none;
+  }
+  .sidebar-link {
+    justify-content: center;
+    padding: 15px 0;
+  }
+  .sidebar-icon {
+    margin-right: 0;
+    font-size: 24px;
+  }
+}

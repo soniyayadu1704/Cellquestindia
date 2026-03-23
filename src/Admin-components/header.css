@@ -1,0 +1,77 @@
+/* src/Admin-components/header.css */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #4a4e69;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo-icon {
+  margin-right: 10px;
+}
+
+.header-center {
+  flex: 1;
+  margin: 0 20px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 5px 10px;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  margin-left: 5px;
+}
+
+/* Header right */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .header {
+    padding: 0 10px;
+  }
+  .header-center, .date-time {
+    display: none;
+  }
+  .logo-text {
+    font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100px;
+  }
+  .profile span {
+    display: none;
+  }
+  .logout-btn {
+    font-size: 0;
+  }
+  .logout-btn .logout-icon {
+    font-size: 18px;
+    margin: 0;
+  }
+  .header-right {
+    gap: 8px;
+  }
+}

@@ -1,0 +1,316 @@
+/* =========================
+   General page layout
+========================= */
+:root {
+  --sidebar-width: 256px;
+  --container-padding: 32px;
+  --cards-cols: 4;
+  --title-font-size: 32px;
+  --body-font-size: 16px;
+  --btn-height: 48px;
+  --gap-size: 24px;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --sidebar-width: 80px;
+    --container-padding: 24px;
+    --cards-cols: 2;
+    --title-font-size: 28px;
+    --body-font-size: 15px;
+    --btn-height: 44px;
+    --gap-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --sidebar-width: 0px;
+    --sidebar-mobile-width: 230px;
+    --container-padding: 16px;
+    --cards-cols: 1;
+    --title-font-size: 24px;
+    --body-font-size: 14px;
+    --btn-height: 44px;
+    --gap-size: 16px;
+  }
+}
+
+body {
+  font-size: var(--body-font-size);
+  overflow-x: hidden;
+}
+
+h2 {
+  font-size: var(--title-font-size);
+}
+
+button {
+  height: var(--btn-height);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  /* header on top */
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.content-container {
+  display: flex;
+  flex: 1;
+  padding-top: 70px;
+}
+
+/* =========================
+   Header
+========================= */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 70px;
+  width: 100%;
+  background-color: skyblue;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  color: black;
+  box-sizing: border-box;
+  z-index: 1000;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  margin-left: 5px;
+  padding: 5px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.date-time {
+  font-size: 14px;
+}
+
+.notification {
+  position: relative;
+}
+
+.notification .badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: red;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 10px;
+  padding: 2px 5px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* =========================
+   Sidebar
+========================= */
+.sidebar {
+  width: var(--sidebar-width);
+  background-color: #fdf8e2;
+  color: black;
+  padding: 20px 10px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  transition: all 0.3s ease;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  height: calc(100vh - 70px);
+  z-index: 900;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  padding: 15px 10px;
+  color: #333;
+  text-decoration: none;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  transition: background 0.2s;
+}
+
+.sidebar-link:hover {
+  background-color: #ddd;
+}
+
+.sidebar-icon {
+  margin-right: 10px;
+}
+
+/* Sidebar toggle active for mobile */
+.sidebar.active {
+  left: 0;
+}
+
+/* =========================
+   Main content
+========================= */
+.main-content {
+  flex: 1;
+  min-width: 0;
+  /* allows flex child to shrink below intrinsic width */
+  padding: var(--container-padding);
+  background-color: #f4f6f8;
+  margin-left: var(--sidebar-width);
+  transition: all 0.3s ease;
+  min-height: calc(100vh - 70px);
+  box-sizing: border-box;
+}
+
+/* =========================
+   Dashboard cards
+========================= */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(var(--cards-cols), 1fr);
+  gap: var(--gap-size);
+  margin-bottom: 30px;
+}
+
+.card-hover {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #fff;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Pastel colors */
+.card-one {
+  background-color: #c4c3e3;
+  color: #333;
+}
+
+.card-two {
+  background-color: #d6e499;
+  color: #333;
+}
+
+.card-three {
+  background-color: #ffccc3;
+  color: #333;
+}
+
+.card-four {
+  background-color: #f9e46f;
+  color: #333;
+}
+
+/* Card text */
+.card-hover h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.card-hover p {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* =========================
+   Chart section
+========================= */
+.chart {
+  background-color: #f7f7f7;
+  padding: 20px;
+  border-radius: 10px;
+  height: 350px;
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+  color: #666;
+
+  max-width: 900px;
+  /* limit chart width */
+  margin: 0 auto;
+  /* center the chart */
+}
+
+.chart h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.chart-placeholder {
+  font-size: 16px;
+  color: #888;
+  text-align: center;
+}
+
+/* =========================
+   Responsive styles
+========================= */
+
+/* Tablet & Mobile specifics logic beyond CSS properties */
+@media (max-width: 768px) {
+  .sidebar {
+    width: var(--sidebar-mobile-width);
+    left: calc(-1 * var(--sidebar-mobile-width));
+    z-index: 1000;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .sidebar.active {
+    left: 0;
+  }
+}
+
+/* Global table responsiveness */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
